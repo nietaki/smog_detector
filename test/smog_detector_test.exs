@@ -3,6 +3,6 @@ defmodule SmogDetectorTest do
   doctest SmogDetector
 
   test "greets the world" do
-    assert SmogDetector.hello() == :world
+    assert SmogDetector.hello() == :folks
   end
 end

@@ -9,7 +9,7 @@ defmodule SmogDetector do
   ## Examples
 
       iex> SmogDetector.hello
-      :world
+      :folks
 
   """
   def hello do
