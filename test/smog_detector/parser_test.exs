@@ -2,7 +2,7 @@ defmodule SmogDetector.ParserTest do
   use ExUnit.Case
 
   # {:circuits_uart, "ttyAMA0", <<66, 77, 0, 28, 0, 53, 0, 81>>}
-  # {:circuits_uart, "ttyAMA0", <<0, 101, 0, 34, 0, 53, 0, 73>>}
+  # {:circuits_uart, "ttyAMA0", <<0, 101, 1, 34, 0, 53, 0, 73>>}
   # {:circuits_uart, "ttyAMA0", <<36, 60, 10, 189, 1, 212, 0, 68>>}
   # {:circuits_uart, "ttyAMA0", <<0, 33, 0, 12, 151, 0, 5, 58>>}
   # {:circuits_uart, "ttyAMA0", <<66, 77, 0, 28, 0, 53, 0, 81>>}
@@ -43,7 +43,7 @@ defmodule SmogDetector.ParserTest do
   # {:circuits_uart, "ttyAMA0", <<0, 19, 0, 5, 151, 0, 5, 3>>}
 
   @first_eight_bytes <<66, 77, 0, 28, 0, 53, 0, 81>>
-  @second_eight_bytes <<0, 101, 0, 34, 0, 53, 0, 73>>
+  @second_eight_bytes <<0, 101, 1, 34, 0, 53, 0, 73>>
   @third_eight_bytes <<36, 60, 10, 189, 1, 212, 0, 68>>
   @fourth_eight_bytes <<0, 33, 0, 12, 151, 0, 5, 58>>
 
@@ -69,7 +69,7 @@ defmodule SmogDetector.ParserTest do
       input = @fourth_eight_bytes
       assert {:ok, _, measurements} = Parser.parse(acc, input)
       assert measurements != nil
-      assert %Measurements{} = measurements
+      assert %Measurements{pm10: 290, pm25: 53, pm100: 73} = measurements
     end
   end
 end
