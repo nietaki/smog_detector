@@ -60,7 +60,7 @@ defmodule SmogDetector.ParserTest do
     end
 
     test "when it has data to append to the frame" do
-      assert {:ok, @first_eight_bytes <> @second_eight_bytes, nil} =
+      assert {:ok, @first_eight_bytes <> @second_eight_bytes, nil} ==
                Parser.parse(@first_eight_bytes, @second_eight_bytes)
     end
 
