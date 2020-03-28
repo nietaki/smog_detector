@@ -13,6 +13,6 @@ defmodule SmogDetector do
 
   """
   def hello do
-    :world
+    :folks
   end
 end
