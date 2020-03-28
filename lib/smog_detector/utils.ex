@@ -12,4 +12,19 @@ defmodule SmogDetector.Utils do
         Enum.reverse(acc)
     end
   end
+
+  # def loop(state) do
+  #   receive do
+  #     {:circuits_uart, _port, data} ->
+  #       # shange state here
+  #       loop(state)
+  #     # {:call, :get_latest_measurements, from} ->
+  #     #   send(from, state.latest_measurements)
+  #     #   # shange state here
+  #     #   loop(state)
+  #   after
+  #     100 ->
+  #       loop(state)
+  #   end
+  # end
 end

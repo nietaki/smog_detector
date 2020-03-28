@@ -8,13 +8,18 @@ defmodule SmogDetector.Parser do
     do_parse(acc)
   end
 
-  defp do_parse(<<66, 77, _fluff::binary-size(8), meat::binary-size(6), _rest_of_the_frame::binary-size(8), tail::binary>>) do
+  defp do_parse(
+         <<66, 77, _fluff::binary-size(8), meat::binary-size(6),
+           _rest_of_the_frame::binary-size(8), tail::binary>>
+       ) do
     <<pm10_bytes::binary-size(2), pm25_bytes::binary-size(2), pm100_bytes::binary-size(2)>> = meat
+
     m = %Measurements{
       pm10: :binary.decode_unsigned(pm10_bytes),
       pm25: :binary.decode_unsigned(pm25_bytes),
-      pm100: :binary.decode_unsigned(pm100_bytes),
+      pm100: :binary.decode_unsigned(pm100_bytes)
     }
+
     {:ok, tail, m}
   end
 

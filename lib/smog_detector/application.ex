@@ -34,6 +34,7 @@ defmodule SmogDetector.Application do
       # Children for all targets except host
       # Starts a worker by calling: SmogDetector.Worker.start_link(arg)
       # {SmogDetector.Worker, arg},
+      {SmogDetector.Sensor, []}
     ]
   end
 
